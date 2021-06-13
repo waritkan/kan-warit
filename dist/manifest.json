@@ -1,0 +1,49 @@
+{
+  "name": "Block test",
+  "version": "1.0.0",
+  "description": "Good bye",
+  "author": "Navendu Pottekkat",
+  "homepage_url": "https://github.com/nsfw-filter/nsfw-filter/",
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "<all_urls>",
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["src/background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": ["src/content.js"],
+      "all_frames": true,
+      "run_at": "document_start"
+    }
+  ],
+  "browser_action": {
+    "default_icon": {
+      "16": "images/17016.png",
+      "32": "images/32030.png",
+      "48": "images/48045.png",
+      "128": "images/1280120.png"
+    },
+    "default_title": "Block hee"
+  },
+  "icons": {
+    "16": "images/17016.png",
+    "32": "images/32030.png",
+    "48": "images/48045.png",
+    "128": "images/1280120.png"
+  },
+  "web_accessible_resources": [
+    "models/*, images/*"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "manifest_version": 2
+}
